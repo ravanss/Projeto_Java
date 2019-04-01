@@ -6,6 +6,7 @@ public class Video implements acoesVideos{
     private int views;
     private int curtidas;
     private boolean reproduzindo;
+    private boolean inscrito;
 
     @Override
     public void play() {
@@ -21,6 +22,11 @@ public class Video implements acoesVideos{
     public void like() {
         this.curtidas = this.curtidas + 1;
     }
+    
+    @Override
+    public void seInscrever() {
+        this.inscrito = true;
+    }
 
     public Video(String titulo) {
         this.titulo = titulo;
@@ -28,6 +34,7 @@ public class Video implements acoesVideos{
         this.views = 0;
         this.curtidas = 0;
         this.reproduzindo = false;
+        this.inscrito =false;
     }
     
     public String getTitulo() {
@@ -72,13 +79,23 @@ public class Video implements acoesVideos{
         this.reproduzindo = reproduzindo;
     }
 
+    public boolean getInscrito() {
+        return inscrito;
+    }
+
+    public void setInscrito(boolean inscrito) {
+        this.inscrito = inscrito;
+    }
+
     @Override
     public String toString() {
-        return "Video{" + "titulo=" + titulo 
-                + ", avaliacao=" + avaliacao 
-                + ", views=" + views 
-                + ", curtidas=" + curtidas 
-                + ", reproduzindo=" + reproduzindo + '}';
+        return "Video{" + "titulo=" + titulo + 
+                ", avaliacao=" + avaliacao +
+                ", views=" + views + 
+                ", curtidas=" + curtidas + 
+                ", reproduzindo=" + reproduzindo + 
+                ", inscrito=" + inscrito + '}';
     }
+
     
 }
